@@ -89,11 +89,13 @@ public class CheckLogin {
  - ViewAssertions – allows us to assert the state of the view. **check()** is method Most of the time
  
  Example Click on id=btn_login
+
     ```javascript
     onView(withId(R.id.btn_login)).perform(click());
     ```
     
  Example Check id=btn_logout visible on screen
+
     ```javascript
     onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
     ```
