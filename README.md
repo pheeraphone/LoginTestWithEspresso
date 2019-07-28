@@ -15,3 +15,14 @@ Go to **app/build.gradle** in your project
  ```javascript
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   ```
+  
+ ### Create java class for test
+Create java class in **app/java/com.sourcey.materiallogindemo (androidtest)**
+1.Add "@RunWith(AndroidJUnit4.class)" to the code. (ex.my class name is CheckLogin)
+ ```javascript
+ @RunWith(AndroidJUnit4.class)
+public class CheckLogin {
+}
+ 
+   ```
+   The @Runwith annotation will tell the JUnit to run the tests in this class using the Android JUnit test runner.
