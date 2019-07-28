@@ -18,6 +18,7 @@ Go to **app/build.gradle** in your project
   
  ### Create java class for test
 Create java class in **app/java/com.sourcey.materiallogindemo (androidtest)**
+
 1.Add "@RunWith(AndroidJUnit4.class)" to the code. (ex.my class name is CheckLogin)
  ```javascript
  @RunWith(AndroidJUnit4.class)
