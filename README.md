@@ -82,5 +82,14 @@ public class CheckLogin {
 
 [JUnit method order execution](https://garygregory.wordpress.com/2011/09/25/understaning-junit-method-order-execution/) - Understanding JUnit method order execution
    
-   
+
+ ## The main components of Espresso
+ - ViewMatchers – allows us to find a view in the view hierarchy.
+    Example
+    ```javascript
+    onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
+    ```
+    Check id=btn_logout visible on screen
+ - ViewActions – allows us to perform automated actions on the view. Such as clicks etc.
+ - ViewAssertions – allows us to assert the state of the view.
    
