@@ -84,12 +84,17 @@ public class CheckLogin {
    
 
  ## The main components of Espresso
- - ViewMatchers – allows us to find a view in the view hierarchy.
-    Example
+ - ViewMatchers – allows us to find a view in the view hierarchy.You can pass one or more of these to the **onView()**
+ - ViewActions – allows us to perform automated actions on the view. Such as **clicks** etc.
+ - ViewAssertions – allows us to assert the state of the view. **check()** is method Most of the time
+ 
+ Example Click on id=btn_login
+    ```javascript
+    onView(withId(R.id.btn_login)).perform(click());
+    ```
+    
+ Example Check id=btn_logout visible on screen
     ```javascript
     onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
     ```
-    Check id=btn_logout visible on screen
- - ViewActions – allows us to perform automated actions on the view. Such as clicks etc.
- - ViewAssertions – allows us to assert the state of the view.
    
