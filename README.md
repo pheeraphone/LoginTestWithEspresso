@@ -1,7 +1,9 @@
 # UI Automate Test With Espresso : Login Test
 ## Prepare
 - You need to download and install Android Studio from https://developer.android.com/studio/
-- Some Android test project
+- Some android test project (you can clone this project for example)
+- [BasicSample](https://developer.android.com/training/testing/espresso/basics) - Basic Espresso sample
+
 
 ## Set Up Espresso
 Go to **app/build.gradle** in your project
