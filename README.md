@@ -74,4 +74,10 @@ public class CheckLogin {
  
    ```
    
+   Besides @Before @Test you can add methods used inside the test class,which are @Test, @Before, @BeforeClass, @After, @AfterClass, @Rule
+
+[Methods used inside the test class](https://www.guru99.com/junit-test-framework.html) - JUnit Test Cases @Before @BeforeClass Annotation
+[JUnit method order execution](https://garygregory.wordpress.com/2011/09/25/understaning-junit-method-order-execution/) - Understanding JUnit method order execution
+   
+   
    
