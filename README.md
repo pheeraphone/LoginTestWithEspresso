@@ -32,8 +32,46 @@ public class CheckLogin {
   
   - 2.Add "@Rule" the activity will be launched using the @Rule before test code begins
  ```javascript
- @RunWith(AndroidJUnit4.class)
 @Rule
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
  
    ```
+  - 3.@Before used to specify which method should be executed before each test case (ex. use before register account for verify login case success in test case)
+   ```javascript
+    @Before
+    public void RegisterEmail() throws InterruptedException  { //For Register New Account
+        onView(withId(R.id.link_signup)).perform(click());
+        onView(withId(R.id.input_name))
+                .perform(typeText("Pheeraphone"), closeSoftKeyboard());
+        onView(withId(R.id.input_address))
+                .perform(typeText("SCB Test"), closeSoftKeyboard());
+        onView(withId(R.id.input_email))
+                .perform(typeText("pheeraphone.m@scb.com"), closeSoftKeyboard());
+        onView(withId(R.id.input_mobile))
+                .perform(typeText("0826780159"), closeSoftKeyboard());
+        onView(withId(R.id.input_password))
+                .perform(typeText("12345678"), closeSoftKeyboard());
+        onView(withId(R.id.input_reEnterPassword))
+                .perform(typeText("12345678"), closeSoftKeyboard());
+        onView(withId(R.id.btn_signup)).perform(click());
+        Thread.sleep(7000);
+        onView(withId(R.id.btn_logout)).perform(click());
+ 
+   ```
+
+ - 4.@Test create your test function and annotate it with @Test which will tell JUnit that this is a test.
+   ```javascript
+    @Test
+    public void LoginSuccess() throws InterruptedException{
+        onView(withId(R.id.input_email))
+                .perform(typeText("pheeraphone.m@scb.com"), closeSoftKeyboard());
+        onView(withId(R.id.input_password))
+                .perform(typeText("12345678"), closeSoftKeyboard());
+        onView(withId(R.id.btn_login)).perform(click());
+        Thread.sleep(7000);
+        onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
+    }
+ 
+   ```
+   
+   
