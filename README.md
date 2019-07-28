@@ -1,7 +1,9 @@
 # UI Automate Test With Espresso : Login Test
-You need to prepare your machine by download and install Android Studio from https://developer.android.com/studio/.
+## Prepare
+- You need to download and install Android Studio from https://developer.android.com/studio/
+- Some Android test project
 
-### Set Up Espresso
+## Set Up Espresso
 Go to **app/build.gradle** in your project
 
 - 1.Add dependencies
@@ -16,7 +18,7 @@ Go to **app/build.gradle** in your project
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   ```
   
- ### Create java class for test
+ ## Create java class for test
 Create java class in **app/java/com.sourcey.materiallogindemo (androidtest)**
 
 - 1.Add "@RunWith(AndroidJUnit4.class)" to the code. (ex.my class name is CheckLogin)
