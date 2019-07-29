@@ -1,5 +1,6 @@
 package com.sourcey.materiallogindemo;
 
+import androidx.test.espresso.idling.CountingIdlingResource;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -19,6 +20,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
 public class CheckLogin {
+
+    private CountingIdlingResource countingResource;
     @Rule
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
 
@@ -29,11 +32,11 @@ public class CheckLogin {
         onView(withId(R.id.input_name))
                 .perform(typeText("Pheeraphone"), closeSoftKeyboard());
         onView(withId(R.id.input_address))
-                .perform(typeText("SCB Test"), closeSoftKeyboard());
+                .perform(typeText("Test"), closeSoftKeyboard());
         onView(withId(R.id.input_email))
                 .perform(typeText("pheeraphone.m@scb.com"), closeSoftKeyboard());
         onView(withId(R.id.input_mobile))
-                .perform(typeText("0826710582"), closeSoftKeyboard());
+                .perform(typeText("0826780159"), closeSoftKeyboard());
         onView(withId(R.id.input_password))
                 .perform(typeText("12345678"), closeSoftKeyboard());
         onView(withId(R.id.input_reEnterPassword))
@@ -55,4 +58,6 @@ public class CheckLogin {
         Thread.sleep(7000);
         onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
     }
+
+
 }
