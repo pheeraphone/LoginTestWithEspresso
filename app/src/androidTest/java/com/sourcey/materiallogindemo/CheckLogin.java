@@ -1,8 +1,11 @@
 package com.sourcey.materiallogindemo;
 
+import androidx.test.espresso.IdlingRegistry;
+import androidx.test.espresso.idling.CountingIdlingResource;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -24,6 +27,9 @@ public class CheckLogin {
     private String email_register = "pheeraphone.m@a.com" ;
     private String mobile_register = "0826780159" ;
     private String password_register = "12345678" ;
+    private CountingIdlingResource mIdlingRes = new CountingIdlingResource("WaitUntilVisible");
+    WaitUntilVisible WaitLogout = new WaitUntilVisible();
+    CountingIdlingResource registerWait = WaitLogout.getIdlingResource();
 
     @Rule
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
@@ -31,6 +37,9 @@ public class CheckLogin {
 
     @Before
     public void RegisterEmail() throws InterruptedException  { //For Register New Account
+//      WaitLogout.getIdlingResource();
+//        IdlingRegistry.getInstance().register(mIdlingRes);
+        IdlingRegistry.getInstance().register(registerWait);
         onView(withId(R.id.link_signup)).perform(click());
         onView(withId(R.id.input_name))
                 .perform(typeText(name_register), closeSoftKeyboard());
@@ -42,11 +51,14 @@ public class CheckLogin {
                 .perform(typeText(mobile_register), closeSoftKeyboard());
         onView(withId(R.id.input_password))
                 .perform(typeText(password_register), closeSoftKeyboard());
+        WaitLogout.WaitByID(R.id.input_reEnterPassword);
         onView(withId(R.id.input_reEnterPassword))
                 .perform(typeText(password_register), closeSoftKeyboard());
         onView(withId(R.id.btn_signup)).perform(click());
-        Thread.sleep(7000);
-        onView(withId(R.id.btn_logout)).perform(click());
+//        mIdlingRes.increment();
+//        WaitByID(R.id.btn_logout);
+//        Thread.sleep(7000);
+//        onView(withId(R.id.btn_logout)).perform(click());
 
     }
 
@@ -61,6 +73,13 @@ public class CheckLogin {
         Thread.sleep(7000);
         onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
     }
+
+    @After
+    public void unregisterWait()
+    {
+       IdlingRegistry.getInstance().unregister(registerWait);
+    }
+
 
 
 }
