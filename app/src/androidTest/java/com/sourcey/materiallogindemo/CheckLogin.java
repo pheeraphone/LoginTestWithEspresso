@@ -36,10 +36,32 @@ public class CheckLogin {
 
 
     @Before
-    public void RegisterEmail() throws InterruptedException  { //For Register New Account
+    public void setUp()
+    {
+        IdlingRegistry.getInstance().register(registerWait);
+        RegisterEmail();
+    }
+
+    @Test
+    public void LoginSuccess() throws InterruptedException{
+        onView(withId(R.id.input_email))
+                .perform(typeText(email_register), closeSoftKeyboard());
+        onView(withId(R.id.input_password))
+                .perform(typeText(password_register), closeSoftKeyboard());
+        onView(withId(R.id.btn_login)).perform(click());
+        Thread.sleep(7000);
+        onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
+    }
+
+    @After
+    public void teardown()
+    {
+       IdlingRegistry.getInstance().unregister(registerWait);
+    }
+
+    public void RegisterEmail() { //For Register New Account
 //      WaitLogout.getIdlingResource();
 //        IdlingRegistry.getInstance().register(mIdlingRes);
-        IdlingRegistry.getInstance().register(registerWait);
         onView(withId(R.id.link_signup)).perform(click());
         onView(withId(R.id.input_name))
                 .perform(typeText(name_register), closeSoftKeyboard());
@@ -62,23 +84,6 @@ public class CheckLogin {
 
     }
 
-
-    @Test
-    public void LoginSuccess() throws InterruptedException{
-        onView(withId(R.id.input_email))
-                .perform(typeText(email_register), closeSoftKeyboard());
-        onView(withId(R.id.input_password))
-                .perform(typeText(password_register), closeSoftKeyboard());
-        onView(withId(R.id.btn_login)).perform(click());
-        Thread.sleep(7000);
-        onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
-    }
-
-    @After
-    public void unregisterWait()
-    {
-       IdlingRegistry.getInstance().unregister(registerWait);
-    }
 
 
 
