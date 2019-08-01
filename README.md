@@ -1,4 +1,13 @@
 # UI Automate Test With Espresso : Login Test
+## Test case
+have 2 Testsuit
+- CheckLogin
+  - Verify Login Sucees
+- CheckLoginErrorCase
+  - Verify Login Fail Case Input Email WrongFormat
+  - Verify Login Fail Case Input Password Less Than 4character
+  - Verify Login Fail Case Input Password More Than 10character
+  
 ## Prepare
 - You need to download and install Android Studio from https://developer.android.com/studio/
 - Some android test project (you can clone this project for example)
@@ -10,7 +19,7 @@
 Go to **app/build.gradle** in your project
 
 - 1.Add dependencies
- ```javascript
+ ```java
  //espresso
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     androidTestImplementation 'androidx.test:runner:1.1.0'
@@ -25,7 +34,7 @@ Go to **app/build.gradle** in your project
 Create java class in **app/java/com.sourcey.materiallogindemo (androidtest)**
 
 - 1.Add "@RunWith(AndroidJUnit4.class)" to the code. (ex.my class name is CheckLogin)
- ```javascript
+ ```java
  @RunWith(AndroidJUnit4.class)
 public class CheckLogin {
 }
@@ -36,7 +45,7 @@ public class CheckLogin {
   [AndroidJUnit4](https://developer.android.com/reference/android/support/test/runner/AndroidJUnit4) - AndroidJUnit4 Description
   
   - 2.Add "@Rule" the activity will be launched using the @Rule before test code begins
- ```javascript
+ ```java
 @Rule
     public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
  
@@ -65,7 +74,7 @@ public class CheckLogin {
    ```
 
  - 4.@Test create your test function and annotate it with @Test which will tell JUnit that this is a test.
-   ```javascript
+   ```java
     @Test
     public void LoginSuccess() throws InterruptedException{
         onView(withId(R.id.input_email))
@@ -93,13 +102,13 @@ public class CheckLogin {
  
  Example Click on id=btn_login
 
-  ```javascript
+  ```java
     onView(withId(R.id.btn_login)).perform(click());
   ```
     
  Example Check id=btn_logout visible on screen
 
-  ```javascript
+  ```java
     onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
   ```
   
