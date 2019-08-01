@@ -2,6 +2,7 @@
 ## Prepare
 - You need to download and install Android Studio from https://developer.android.com/studio/
 - Some android test project (you can clone this project for example)
+- SDK API 24
 - [BasicSample](https://developer.android.com/training/testing/espresso/basics) - Basic Espresso sample
 
 
@@ -102,9 +103,16 @@ public class CheckLogin {
     onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
   ```
   
+   ## Espresso idling resources
+   - Android espresso library does provide a class that helps to pause the test until the resource is idle.
+   [About Espresso idling resources](Espresso idling resources) - Read more information about idling resources
+  
   ## How to run Test
   - To run a single test, open the Project window, and then right-click a test and click Run
   - To test all methods in a class, right-click a class or method in the test file and click Run
   - To run all tests in a directory, right-click on the directory and select Run tests
+  - you click the Export Test Results button in the Test Runner tab of the Run tool window.Test results can export to XML,HTML or XSL template
   [About Run Test](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests.html) - Read more information
+  
+
    
