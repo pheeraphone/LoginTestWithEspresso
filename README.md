@@ -114,7 +114,7 @@ public class CheckLogin {
   
    ## Espresso idling resources
    - Android espresso library does provide a class that helps to pause the test until the resource is idle.
-   [About Espresso idling resources](Espresso idling resources) - Read more information about idling resources
+   [About Espresso idling resources](https://developer.android.com/training/testing/espresso/idling-resource) - Read more information about idling resources
   
   ## How to run Test
   - To run a single test, open the Project window, and then right-click a test and click Run
