@@ -49,7 +49,7 @@ public class CheckLogin {
         onView(withId(R.id.input_password))
                 .perform(typeText(password_register), closeSoftKeyboard());
         onView(withId(R.id.btn_login)).perform(click());
-        Thread.sleep(7000);
+        WaitLogout.WaitByID(R.id.btn_logout);
         onView(withId(R.id.btn_logout)).check(matches(isDisplayed()));
     }
 
@@ -60,8 +60,6 @@ public class CheckLogin {
     }
 
     public void RegisterEmail() { //For Register New Account
-//      WaitLogout.getIdlingResource();
-//        IdlingRegistry.getInstance().register(mIdlingRes);
         onView(withId(R.id.link_signup)).perform(click());
         onView(withId(R.id.input_name))
                 .perform(typeText(name_register), closeSoftKeyboard());
@@ -73,14 +71,11 @@ public class CheckLogin {
                 .perform(typeText(mobile_register), closeSoftKeyboard());
         onView(withId(R.id.input_password))
                 .perform(typeText(password_register), closeSoftKeyboard());
-        WaitLogout.WaitByID(R.id.input_reEnterPassword);
         onView(withId(R.id.input_reEnterPassword))
                 .perform(typeText(password_register), closeSoftKeyboard());
         onView(withId(R.id.btn_signup)).perform(click());
-//        mIdlingRes.increment();
-//        WaitByID(R.id.btn_logout);
-//        Thread.sleep(7000);
-//        onView(withId(R.id.btn_logout)).perform(click());
+        WaitLogout.WaitByID(R.id.btn_logout);
+        onView(withId(R.id.btn_logout)).perform(click());
 
     }
 
