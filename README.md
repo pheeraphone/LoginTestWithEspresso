@@ -121,6 +121,7 @@ public class CheckLogin {
   - To test all methods in a class, right-click a class or method in the test file and click Run
   - To run all tests in a directory, right-click on the directory and select Run tests
   - you click the Export Test Results button in the Test Runner tab of the Run tool window.Test results can export to XML,HTML or XSL template
+  
   [About Run Test](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests.html) - Read more information
   
 
